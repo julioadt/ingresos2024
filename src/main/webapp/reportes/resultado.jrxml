@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ed877dd-be24-4c32-b3b0-e05d3723c6ee">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="code" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\cuarto semestre\\clase martes\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select   resultados.id,resultados.fecha,resultados.estado,examenes.nombre as enombre,periodos.nombre as pnombre, CONCAT(i.nombre, ' ', i.apellido) as instructor from resultados INNER JOIN examenes on resultados.examen=examenes.id INNER JOIN periodos on  resultados.periodos=periodos.id INNER JOIN instructores i ON i.id=resultados.instructor where resultados.id = $P{code};]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="enombre" class="java.lang.String"/>
+	<field name="pnombre" class="java.lang.String"/>
+	<field name="instructor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="294" splitType="Stretch">
+			<staticText>
+				<reportElement x="245" y="142" width="100" height="20" uuid="a78934b2-16cb-46e8-99e4-8496cca6326f"/>
+				<text><![CDATA[Reporte Resultado]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="ec49ae23-03e7-4ce3-8589-f7c33cd97da6"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="54" y="178" width="54" height="20" uuid="e04733c1-609e-4787-a53a-bc49b04df382"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="108" y="178" width="287" height="20" uuid="d53bb295-b76a-4a7b-bfe2-93d4c7bd366b"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="198" width="54" height="20" uuid="162062cd-2c5c-4fa9-8e14-caa36945689a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="198" width="287" height="20" uuid="8dc0b34f-7a80-4c6a-887d-530a343acde8"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="218" width="54" height="20" uuid="b79bc957-a2f1-43a2-b19c-f7ff51ff8ca9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Examen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="238" width="54" height="20" uuid="b4bb1e5c-1f65-45ae-adbc-332c13803ac9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="218" width="287" height="20" uuid="d9a429c3-ecb9-4a74-9be0-9ad9df0d4c10"/>
+				<textFieldExpression><![CDATA[$F{enombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="238" width="287" height="20" uuid="ada7c823-55a0-4e81-8fde-efba0dc67701"/>
+				<textFieldExpression><![CDATA[$F{pnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="258" width="287" height="20" uuid="1c00673f-dfe1-4c31-8967-56519f5f3bc4"/>
+				<textFieldExpression><![CDATA[$F{instructor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="258" width="54" height="20" uuid="ead15e9c-6304-45dd-97a1-87bf10be3254"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instructor]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="33" y="7" width="100" height="20" uuid="9d2cf77a-71ad-42f6-a481-ca4164833e48"/>
+				<text><![CDATA[Postulante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="7" width="100" height="20" uuid="f449155f-ba95-4d0b-8510-72938e9007f1"/>
+				<text><![CDATA[Puntaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="7" width="61" height="20" uuid="c159c95e-5838-4b62-a829-1bdae06bcdb0"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="0dd3db83-e9e8-43fd-a318-09df277d3a53"/>
+				<subreportParameter name="code">
+					<subreportParameterExpression><![CDATA[$P{code}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./resultados_detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

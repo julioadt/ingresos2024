@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="98663c31-091e-4752-bbed-8919441ffea1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="code" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from compañia where id =$P{code}  ;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="258" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="10" width="200" height="100" uuid="74d35a58-18b4-4a4c-919a-2d2c62b1cf1f"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle radius="10">
+				<reportElement x="188" y="202" width="224" height="49" uuid="b656d237-d924-4064-86e3-b4a4149131e9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="253" y="219" width="100" height="20" uuid="0b9ac07e-4f13-4bb7-a2d6-3da69dfec549"/>
+				<text><![CDATA[Reporte Compañia]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="61" y="2" width="100" height="20" uuid="f76fd5d3-f626-4ecc-87d1-cc396bb36bcd"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="2" width="100" height="20" uuid="3745e4de-cbfb-47f5-b8f4-f7a6b961b950"/>
+				<text><![CDATA[Nombre ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="61" y="19" width="100" height="20" uuid="2d68b823-80fc-47af-9a4d-bcbda0084a3d"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="27" width="100" height="20" uuid="b5a3f6d0-9c56-4656-bcdb-ab3bfd8633b6"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

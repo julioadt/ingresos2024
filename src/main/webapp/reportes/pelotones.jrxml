@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="026db7bf-cc64-4511-8c5d-45e2983dabdd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select * from pelotones;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="compañia" class="java.lang.Integer"/>
+	<field name="instructor" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="201" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="170" y="142" width="220" height="45" uuid="e3015d15-7623-4d8c-b349-810ec0ad34e0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="206" y="154" width="148" height="24" uuid="0e8c54e4-f23a-44e2-8d53-3b40efc0553a"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listado Pelotones]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="6" y="0" width="200" height="100" uuid="de156846-fbb8-46e6-8f22-9d0607cd6d02"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="2" width="555" height="30" uuid="6d0d6f1f-8cd2-424a-8d55-c61d5f11ed44"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="2" width="44" height="20" uuid="38301d1e-6353-450e-9c80-37f7663c39f6"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="2" width="100" height="20" uuid="ca5e57dc-13bc-47e2-8ddf-00f4b29aa7f1"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="0" width="100" height="20" uuid="d6190a11-6d3b-43c8-bc71-8c6a6ea6e4d3"/>
+				<text><![CDATA[COMPAÑIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="2" width="100" height="20" uuid="f7549bb2-204a-44dd-9980-3d73d37dd0ba"/>
+				<text><![CDATA[INSTRUCTOR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="20" uuid="9c39c8be-9f88-4c13-b0ac-fbf3b18a18ec"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="100" height="20" uuid="f6287b3e-5a24-4f54-bb14-37137da4c57d"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="0" width="100" height="20" uuid="1633895c-3c44-4f41-8970-9b0b3bf6f45e"/>
+				<textFieldExpression><![CDATA[$F{compañia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="0" width="100" height="20" uuid="5190bb94-99fc-4ca2-8f1d-242e3886f97c"/>
+				<textFieldExpression><![CDATA[$F{instructor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

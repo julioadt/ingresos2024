@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b344a662-cffa-491a-b2d2-4a95f54a8bff">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="code" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select ed.id, (p.nombre || ' ' || p.apellido) as postulante,ed.puntaje,ed.estado from resultados_detalle ed join resultados e on ed.resultado = e.id join postulantes p on ed.postulantes = p.id where e.id =$P{code};]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="postulante" class="java.lang.String"/>
+	<field name="puntaje" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="254" height="20" uuid="8a8296fc-9e7e-4413-876d-bda80b19a5ab"/>
+				<textFieldExpression><![CDATA[$F{postulante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="100" height="20" uuid="18352a7f-eba0-4227-abe7-c185e6948a30"/>
+				<textFieldExpression><![CDATA[$F{puntaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="24d21e52-af9d-472d-b162-c4d72b4a7fa0"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

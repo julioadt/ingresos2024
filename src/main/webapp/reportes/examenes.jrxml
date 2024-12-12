@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aef7e223-02c0-491a-a965-97a85477c753">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[select * from examenes;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="puntaje" class="java.lang.String"/>
+	<field name="instructores" class="java.lang.Integer"/>
+	<field name="tipodeexamenes" class="java.lang.Integer"/>
+	<field name="promedio" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="241" splitType="Stretch">
+			<subreport>
+				<reportElement x="3" y="17" width="200" height="100" uuid="88366deb-9bec-44eb-bf4d-81bfe7afafed"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle radius="10">
+				<reportElement x="198" y="191" width="172" height="38" uuid="8d3a409d-4bbf-4659-970c-87e3627dc881"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="245" y="204" width="100" height="20" uuid="82a48a35-9c06-4a62-b640-b84618681b79"/>
+				<text><![CDATA[Reporte Examenes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="10" width="555" height="30" uuid="0075f175-21f6-47c8-a8f3-1ad2869b9e8e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="17" y="16" width="47" height="20" uuid="b83d561d-8e2b-42c4-a410-24a07768a7f6"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="15" width="60" height="20" uuid="ad27e2d4-c3d2-4f24-902b-851a35a07a36"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="15" width="51" height="20" uuid="3bec77ec-cead-4740-bf25-2d28ae37c6a9"/>
+				<text><![CDATA[puntaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="17" width="83" height="20" uuid="9704586b-7172-42c0-aebb-996c258b361e"/>
+				<text><![CDATA[instructores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="15" width="100" height="20" uuid="845bac0a-dc20-46b7-8309-035367753d93"/>
+				<text><![CDATA[tipodeexamenes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="15" width="100" height="20" uuid="a714445d-4993-4555-a99f-2590b64d30c5"/>
+				<text><![CDATA[promedio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="21" width="47" height="20" uuid="90b03086-7de9-4af3-b43f-2b5fb40b26d8"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="21" width="60" height="20" uuid="a8a055e0-ecdb-4b48-932b-c45b2a8745d2"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="21" width="64" height="20" uuid="b6df565b-cfdb-4569-871f-f0d3ad685b57"/>
+				<textFieldExpression><![CDATA[$F{puntaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="20" width="78" height="20" uuid="4bdf8542-efa9-432b-9435-2cf9d71fc5ec"/>
+				<textFieldExpression><![CDATA[$F{instructores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="20" width="100" height="20" uuid="8a75b02a-e46d-4d7e-8733-0142139b75eb"/>
+				<textFieldExpression><![CDATA[$F{tipodeexamenes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="20" width="100" height="20" uuid="e12adac4-217f-496d-942c-4b3ceadf1a8c"/>
+				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

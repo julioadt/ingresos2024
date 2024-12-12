@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6e672559-39eb-41c3-8128-46748719f93d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="29"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from compañia;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="232" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="148" y="168" width="291" height="59" uuid="af001284-6065-4bab-a17e-9e9a71e0b625"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="217" y="189" width="148" height="24" uuid="d3cd16f5-8278-4e04-a5bc-35eae0c2609f"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listado Compañia]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="0" width="148" height="100" uuid="516b51cd-8c26-47ac-8b9b-4dde4c4b3789"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<rectangle>
+				<reportElement x="13" y="0" width="542" height="20" uuid="340d3c5f-c873-489f-9e26-82f810267149"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="178" y="0" width="118" height="20" uuid="1ec6e186-8c21-4482-bd66-17fce07db1f1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre de la compañia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="0" width="100" height="20" uuid="0bf76a53-6ab2-42db-afb9-7e2ce05486b6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="27" y="2" width="100" height="20" uuid="aa09aa3e-9c05-40d7-9dc0-b44cdd4d0ab8"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="2" width="100" height="20" uuid="de6c0882-9a94-4531-b0a5-19e2eb018c12"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="746ca68c-f2d2-404b-ab7f-2c2484aaccdd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select i.id, concat(p.nombre, ' ', p.apellido)as postulante, i.total, i.promedio, c.nombre as compa, a.nombre as pelot, pe.nombre as perio  from ingresantes i inner join postulantes p on i.postulante=p.id inner join pelotones a on a.id=i.peloton inner join secciones s on s.id=i.seccion inner join compañia c on a.compañia=c.id inner join periodos pe on pe.id=i.periodo;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="postulante" class="java.lang.String"/>
+	<field name="total" class="java.lang.Integer"/>
+	<field name="promedio" class="java.lang.Integer"/>
+	<field name="compa" class="java.lang.String"/>
+	<field name="pelot" class="java.lang.String"/>
+	<field name="perio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="263" splitType="Stretch">
+			<staticText>
+				<reportElement x="82" y="198" width="400" height="45" uuid="663ba27a-789b-4bf8-93c8-213fe0ef8bb7"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE LISTA DE INGRESANTES]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="11" width="200" height="100" uuid="75217d2b-a9cf-404a-9ead-b89bc05442d8"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23">
+			<staticText>
+				<reportElement x="0" y="0" width="37" height="20" uuid="c12481ba-8fa4-43c5-9060-e18c65b29c4d"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="0" width="127" height="20" uuid="2612f25d-0f26-49b7-a4d4-fde1e518be59"/>
+				<text><![CDATA[Postulante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="36" height="20" uuid="25530c89-6902-40c7-9ea9-112e99cfff35"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="48" height="20" uuid="66f0a073-6f6e-4366-9061-d0778a404f4d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Promedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="0" width="100" height="20" uuid="c13cedad-c602-4bfb-a71c-5830b950829b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Compañia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="0" width="100" height="20" uuid="19260880-cd40-4b91-9e71-b5bec0f805ac"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Peloton]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="0" width="107" height="20" uuid="c12e3803-32ab-42a9-b011-cc337eebdd86"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Periodo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="37" height="20" uuid="186c9bf6-aa8b-4825-a31e-08b6b73b3b30"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="0" width="127" height="20" uuid="39a5e00f-14d0-4d67-bcdb-9ac3a6e0226d"/>
+				<textFieldExpression><![CDATA[$F{postulante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="36" height="20" uuid="e378d538-31aa-4380-ba0a-3ebb7b078688"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="48" height="20" uuid="b80e45a2-c8ac-4dfa-bd8f-56f84b3cf550"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{promedio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="100" height="20" uuid="ce1f71a9-a582-4c4a-ae1e-92178e10ce91"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{pelot}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="107" height="20" uuid="356cb8b4-053b-470c-9d85-2d6e2a7785d3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{perio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="248" y="0" width="100" height="20" uuid="1dab9d0a-6b90-479c-81a7-cf527ad669dc"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{compa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

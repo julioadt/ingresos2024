@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e032501b-1daf-430c-95ff-b4515ba0dc22">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="0" width="174" height="20" uuid="8aa79771-874a-4a27-bda6-a9316035fb1b"/>
+				<text><![CDATA[FUERZA ARMADA SAN LORENZO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="20" width="100" height="20" uuid="6c4feeb9-cfca-423e-9c62-7832c27b2822"/>
+				<text><![CDATA[San lorenzo-1021]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="40" width="100" height="20" uuid="e23ebd21-e7b5-4b57-ba98-1c207e278e7e"/>
+				<text><![CDATA[Telefono: 021345543]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-32" y="70" width="292" height="0" uuid="6beb12d3-940c-4e34-afd0-839c912d8513"/>
+				<imageExpression><![CDATA["C:\\Users\\alumno\\Pictures\\JULIO logo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="20" width="130" height="73" uuid="abf3a0dd-d953-4069-abcd-102dd98f9538"/>
+				<imageExpression><![CDATA["C:\\Users\\alumno\\Pictures\\JULIO logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

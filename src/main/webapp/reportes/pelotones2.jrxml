@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4574deda-d361-41da-8567-c0723f46babe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from pelotones where id=1;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="compañia" class="java.lang.Integer"/>
+	<field name="instructor" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="217" splitType="Stretch">
+			<staticText>
+				<reportElement x="223" y="187" width="135" height="30" uuid="13566ac7-e530-4e27-9e45-17ceecbdd430"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Peloton]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="8" y="12" width="200" height="100" uuid="1d70b152-6b87-42eb-a471-83d3d6c00a41"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="5" width="555" height="31" uuid="921631ad-7dd6-4795-a86a-984db4905e0b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="10" width="30" height="20" uuid="efddfa3d-d475-4875-af9c-ac0e7c6155b3"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="9" width="66" height="20" uuid="6ead3ed5-4cc7-4a0b-9f5f-bbedd9541368"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="9" width="81" height="20" uuid="4359d2ad-72fa-4d77-a5aa-ec8090a889cf"/>
+				<text><![CDATA[compañia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="9" width="61" height="20" uuid="4c649f4c-11d7-43eb-aadb-2b87d343bbc6"/>
+				<text><![CDATA[instructor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="5" width="30" height="20" uuid="307d23ea-e5d4-4bbf-a37f-d09b21e40cb5"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="7" width="62" height="20" uuid="429936bf-b206-482b-a7f7-6221a0df9656"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="7" width="81" height="20" uuid="1c63dfad-6492-461c-9ca5-b8647baad101"/>
+				<textFieldExpression><![CDATA[$F{compañia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="9" width="61" height="20" uuid="66e61b54-9e8e-4277-8ef7-8edc76457e0e"/>
+				<textFieldExpression><![CDATA[$F{instructor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

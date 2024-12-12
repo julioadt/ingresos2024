@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5b48a3e6-049f-4457-a4a6-3c05470ef5a6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="inicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="examn" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="exam" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT resultados.id as id , resultados.fecha as fecha, examenes.nombre as examen, periodos.nombre as periodo 
+FROM resultados 
+INNER JOIN examenes ON resultados.examen = examenes.id INNER JOIN periodos ON resultados.periodos=periodos.id
+WHERE ($P{exam}='-1' OR resultados.examen = $P{exam}) AND resultados.estado='FINALIZADO' AND fecha between $P{inicio} AND $P{fin};]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="examen" class="java.lang.String"/>
+	<field name="periodo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="269" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="154" width="213" height="20" uuid="a5159f1e-68f0-4e8d-aaa9-9e49568c2d2f"/>
+				<text><![CDATA[INFORME GENERAL DE RESULTADOS]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="2677b9d0-2508-4448-89e2-4e5d1bc9a2b8"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="206" width="69" height="20" uuid="0bec45a1-7f28-4068-a3e3-bf3088388eb8"/>
+				<text><![CDATA[Fecha inicio:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="69" y="206" width="100" height="20" uuid="b115a837-407b-475a-b93a-24ee3a6b436e"/>
+				<textFieldExpression><![CDATA[$P{inicio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="322" y="206" width="100" height="20" uuid="fbf10d8a-85c8-44ad-be37-eca660591ef5"/>
+				<textFieldExpression><![CDATA[$P{fin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="253" y="206" width="69" height="20" uuid="3dc99d3d-2ec5-4fb2-aca5-919a1938f99f"/>
+				<text><![CDATA[Fecha fin:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="69" y="236" width="100" height="20" uuid="84644b68-2721-4940-bf31-bdec47d8e713"/>
+				<textFieldExpression><![CDATA[($P{exam}==-1)? "SIN FILTRO" : $F{examen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="236" width="69" height="20" uuid="73767036-7894-4a60-b9b1-f35b0ee51a5e"/>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="11" width="555" height="37" uuid="184f6366-4516-4811-92f3-b955da099ff5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="11" width="59" height="20" uuid="f8daa30c-1ed2-4827-b89d-2408b6ba1fb7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="11" width="263" height="20" uuid="c12ef139-ee3b-44cc-a7fb-b7eb809888c5"/>
+				<text><![CDATA[EXAMEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="11" width="100" height="20" uuid="66648a4d-4e03-4924-b325-fb89cf282b56"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="11" width="133" height="20" uuid="d85da22d-8878-4453-ae4e-c3fe0a958c74"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[PERIODO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="59" height="20" uuid="54912c51-f906-4531-ac31-ba75d0f909b2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="0" width="263" height="20" uuid="bce47e8e-e5ee-4276-8703-2fdd0c0fd7d7"/>
+				<textFieldExpression><![CDATA[$F{examen}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="322" y="0" width="100" height="20" uuid="6b87999f-3eb3-4625-b441-39e57a060eba"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="133" height="20" uuid="3820517d-34bd-49d7-9b6a-12106e67b4d8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{periodo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

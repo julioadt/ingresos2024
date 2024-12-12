@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5b48a3e6-049f-4457-a4a6-3c05470ef5a6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\julio proyecto\\julio\\proyecto2024\\src\\main\\webapp\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from factura INNER JOIN postulantes on factura.postulante = postulantes.id;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="postulante" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="total" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="ciudad" class="java.lang.Integer"/>
+	<field name="ci" class="java.lang.String"/>
+	<field name="fotocifrente" class="java.lang.String"/>
+	<field name="fotociatras" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="182" splitType="Stretch">
+			<staticText>
+				<reportElement x="231" y="149" width="100" height="20" uuid="a5159f1e-68f0-4e8d-aaa9-9e49568c2d2f"/>
+				<text><![CDATA[Reporte Facturas]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="2677b9d0-2508-4448-89e2-4e5d1bc9a2b8"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./header.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="11" width="555" height="37" uuid="184f6366-4516-4811-92f3-b955da099ff5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="11" width="31" height="20" uuid="c4fa15b3-5b41-4215-9d46-965e989e4c3d"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="11" width="100" height="20" uuid="fc92d7d5-ac52-497b-9d15-53313e3ef582"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="11" width="128" height="20" uuid="df835a9f-e55b-4740-9631-386dd7751991"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="11" width="296" height="20" uuid="017300bc-9de0-4f84-a680-a221f3d32fe7"/>
+				<text><![CDATA[Ciente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50">
+			<textField>
+				<reportElement x="0" y="0" width="31" height="20" uuid="e17d0dd6-85eb-4077-a589-b1a667db2bae"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="31" y="0" width="100" height="20" uuid="efb6fd3d-9142-4dac-afaa-8a8fcc4d45cd"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="128" height="20" uuid="87a0e179-c361-46b5-a7fa-3dd193198437"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="0" width="296" height="20" uuid="dead942f-eae0-4809-a87d-161e2e13bc44"/>
+				<textFieldExpression><![CDATA[$F{nombre} + " " + $F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

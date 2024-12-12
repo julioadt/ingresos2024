@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <jsp-file>/jsp/inscripcion.jsp</jsp-file>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size> <!-- Tamaño máximo del archivo en bytes -->
+            <max-request-size>20971520</max-request-size> <!-- Tamaño máximo de la solicitud en bytes -->
+            <file-size-threshold>1024</file-size-threshold> <!-- Umbral en bytes para almacenamiento en memoria -->
+        </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/jsp/inscripcion.jsp</url-pattern>
+    </servlet-mapping>
+</web-app>
